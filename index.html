@@ -391,12 +391,12 @@ nav button.cta-btn:hover{background:var(--tlL)}
             <div>
               <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:var(--wh)">Neel Singh</div>
               <div style="font-size:13px;color:var(--lg);margin-top:2px">Managing Partner, Strategy &amp; Operations</div>
-              <div style="font-size:13px;color:var(--tlL);margin-top:4px">neel@tropoly.io</div>
+              <div style="font-size:13px;color:var(--ow);margin-top:4px" data-em="neel@tropoly.io"></div>
             </div>
             <div>
               <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:var(--wh)">Mark Funston</div>
               <div style="font-size:13px;color:var(--lg);margin-top:2px">Partner, Marketing &amp; Communications</div>
-              <div style="font-size:13px;color:var(--tlL);margin-top:4px">mark@tropoly.io</div>
+              <div style="font-size:13px;color:var(--ow);margin-top:4px" data-em="mark@tropoly.io"></div>
             </div>
           </div>
         </div>
@@ -520,6 +520,9 @@ function scrollTo(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({behavior:'smooth'});
 }
+
+// Render emails at runtime to avoid proxy mangling
+document.querySelectorAll('[data-em]').forEach(el => { el.textContent = el.dataset.em; });
 
 // ================================================
 function initFades() {
